@@ -1,16 +1,16 @@
 IDIR =../include
 CC=gcc
-CFLAGS=-I$(IDIR)
+CFLAGS=-I$(IDIR) -W -Wall -pedantic -ansi -g
 
 ODIR=obj
 LDIR =../lib
 
 LIBS= -lm
 
-_DEPS = map.h
+_DEPS = map.h robot.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o map.o
+_OBJ = main.o map.o robot.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
