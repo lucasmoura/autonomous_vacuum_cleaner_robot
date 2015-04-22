@@ -19,5 +19,7 @@ extern Map* create_map(int, int);
 extern void display_map(Map*);
 extern void init_map(Map*);
 extern void free_map(Map*);
+extern void mark_as_visited(Map*, int, int);
+extern int  get_map_value(Map*, int, int);
 
 #endif

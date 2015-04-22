@@ -66,6 +66,16 @@ void display_map(Map* map)
 
 }    
 
+void mark_as_visited(Map* map, int row, int column)
+{
+    map->map[row][column] = 1;
+}    
+
+int get_map_value(Map* map, int row, int column)
+{
+    return map->map[row][column];
+}    
+
 void free_map(Map* map)
 {
     int i;
