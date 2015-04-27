@@ -1,16 +1,16 @@
 IDIR =../include
 CC=gcc
-CFLAGS=-I$(IDIR) -W -Wall -pedantic -ansi -g
+CFLAGS=-I$(IDIR) -W -Wall -pedantic -ansi -g -std=gnu99
 
 ODIR=obj
 LDIR =../lib
 
 LIBS= -lm
 
-_DEPS = map.h robot.h
+_DEPS = map.h robot.h arduino-serial-lib.h 
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o map.o robot.o
+_OBJ = main.o map.o robot.o arduino-serial-lib.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 

@@ -2,13 +2,41 @@
 #include <stdlib.h>
 #include "map.h"
 #include "robot.h"
+#include "arduino-serial-lib.h"
+#include <string.h>
 
 int move_robot(Map*, Robot*);
  
 int main()
 {
 
-    int num_rows = 5;
+    char* serialport = "/dev/ttyACM0";
+    int baud = 9600;
+    int fd;
+    int buf_max = 10;
+    int count = 10;
+    int timeout = 10000;
+    char *buff = (char*) malloc(sizeof(char)*buf_max);
+    char until = '.';
+
+    fd = serialport_init(serialport, baud); 
+
+    printf("FD: %d\n", fd);
+
+
+    while(count)
+    {
+        serialport_read_until(fd, buff, until, buf_max, timeout);   
+        printf("Buffer: %s\n", buff);
+
+        memset(buff, '\0', buf_max );
+        usleep(10000);
+        count--;
+    }
+
+    serialport_close(fd);
+
+    /*int num_rows = 5;
     int num_columns = 5;
     
     int initial_row = 5;
@@ -33,7 +61,7 @@ int main()
 
     free(robot);
     free_map(map);
-    free(map);
+    free(map);*/
 
     return 0;
 }
