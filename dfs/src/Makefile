@@ -7,10 +7,10 @@ LDIR =../lib
 
 LIBS= -lm
 
-_DEPS = position.h dfs.h
+_DEPS = position.h dfs.h pathNode.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o position.o dfs.o
+_OBJ = main.o position.o dfs.o pathNode.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
