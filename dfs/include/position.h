@@ -11,7 +11,7 @@ class Position
             LEFT,
             RIGHT,
             FRONT
-        }possible_directions ;
+        }possible_directions;
 
         Position(int, int, int, int);
         Position(){};
